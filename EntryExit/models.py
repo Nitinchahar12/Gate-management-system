@@ -1,6 +1,6 @@
 from django.db import models
 import uuid
-import datetime
+
 
  class Entry_Exit(models.Model):
      name = models.ForeignKey(blank=True, null=True)
