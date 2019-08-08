@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url
+from django.urls import include, path, re_path
+from django.views.generic import TemplateView
+from django.conf import settings
+from EntryExit.views import Entry_Exit_view
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('entryexit/', Entry_Exit_view),
 ]

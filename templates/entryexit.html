@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Entry Exit System </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="JavaScript" href="{% static "/js/onclick.js" %}" type="text/JavaScript">
+</<head>
+<body>
+  <div class="page">
+  <div class="page bg-white">
+  <div class="page-header">
+    <h2 class="page-title">Entry/Exit Manager</h2>
+  </div>
+
+    <table class="table is-indent" data-plugin="animateList" data-animate="fade" data-child="tr"
+      data-selectable="selectable">
+      <thead class="thead-dark">
+        <tr>
+          <th class="cell-300" scope="col">Entry/Exit</th>
+          <th class="cell-300" scope="col">Name</th>
+          <th class="cell-300" scope="col">ID</th>
+          <th class="cell-300" scope="col">Age</th>
+          <th scope="cell-300" scope="col">DOB</th>
+          <th class="cell-300" scope="col">Gate Number Entry</th>
+          <th class="cell-300" scope="col">Entry Time</th>
+          <th class="cell-300" scope="col">Exit Time</th>
+
+
+        </tr>
+      </thead>
+      {% for object in qs %}
+      <tbody>
+        <tr data-url="panel.tpl" data-toggle="slidePanel">
+
+          <td class="cell-600"><button type="button" class="btn btn-info" onclick="getTimeStamp();">Entry</button>
+          <button type="button" class="btn btn-info" onclick="getTimeStamp();">Exit</button></td>
+          <td class="cell-300">{{ object.name }}</td>
+          <td class="cell-300">{{ object.id }}</td>
+          <td class="cell-300">{{ object.age }}</td>
+          <td class="cell-200">{{ object.dob }}</td>
+          <td class="cell-100">{{ object.gate_entry_number }}</td>
+          <td class="cell-100">{{ object.entry_timestamp }}</td>
+          <td class="cell-100">{{ object.exit_timestamp }}</td>
+
+
+        </tr>
+      </tbody>
+      {% endfor %}
+
+    </table>
+
+    <ul data-plugin="paginator" data-total="50" data-skin="pagination-gap"></ul>
+  </div>
+  </div>
+</body>
+
+</html>
