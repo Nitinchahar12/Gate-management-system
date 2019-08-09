@@ -8,12 +8,12 @@ from django.http import HttpResponse
 # Create your views here.
 def Entry_Exit_view(request):
     if request.method == 'POST':
-        today = datetime.datetime.now().time()
-        request.POST.get(today)
-        return HttpResponse(request, "entryexit.html")
-    else :
-        request.method == 'GET'
-        a = Entry_Exit.objects.all()
-        today = datetime.datetime.now().time()
+        request.POST.get('div1')
 
-        return render(request, "entryexit.html", {'qs': a, "today" : today})
+        return HttpResponse(request, "entryexit.html")
+    elif request.method == 'GET':
+        a = Entry_Exit.objects.all()
+        request.POST.get('div1')
+        print("111")
+
+        return render(request, "entryexit.html", {'qs': a,} )
