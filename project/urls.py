@@ -22,7 +22,9 @@ from django.conf import settings
 from EntryExit.views import Entry_Exit_view
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('entryexit/', Entry_Exit_view),
+
 ]
