@@ -7,33 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="JavaScript" href="{% static "/js/onclick.js" %}" type="text/JavaScript">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script>
-  (function(){
-     $('form').on('submit', function(e){
-         e.preventDefault();
-         $.ajax({
-             url: $(#static/js/onclick.js).attr('action'),
-             method: $(#form).attr('method'),
-             success: function(data){ $('#div1').html(data) }
-         });
-     });
-});
 
-  </script>
-  <script>
-  (function(){
-     $('form').on('click', function(e){
-         e.preventDefault();
-         $.ajax({
-             url: $(static/js/onclick.js).attr('action'),
-             method: $(#form).attr('method'),
-             success: function(data){ $('#div2').html(data) }
-         });
-     });
-});
-
-  </script>
 
 
 </<head>
@@ -64,11 +38,10 @@
       <tbody>
         <tr data-url="panel.tpl" data-toggle="slidePanel">
 
-          <td class="cell-600"><form action="{% url 'entryexit' %}" method="POST">
-    <input id="submit" type="button" value="Enter" data_url/>
-</form>
-<form action="{% url 'entryexit' %}" method="POST">
-    <input id="click" type="button" value="Exit" data_url/>
+          <td class="cell-600">
+    <form action="{% url 'output' object.id %}" method="POST">
+    <input  type="submit" name='_entry' value="Enter" />
+    <input  type="submit" name='_exit' value="Exit" />
 </form></td>
           <td class="cell-300">{{ object.name }}</td>
           <td class="cell-300">{{ object.id }}</td>
